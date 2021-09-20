@@ -1,0 +1,49 @@
+C:\Users\sevaf>scala
+Welcome to Scala 2.12.10 (Java HotSpot(TM) Client VM, Java 1.8.0_301).
+Type in expressions for evaluation. Or try :help.
+
+scala> val name = "Seva Finogenov"
+name: String = Seva Finogenov
+
+scala> val greetings = "Hello"
+greetings: String = Hello
+
+scala> val rest = "Scala! This is"
+rest: String = Scala! This is
+
+scala> val sayHello = (h: String, r: String, n: String) => println(h + " " + r + " " + n)
+sayHello: (String, String, String) => Unit = $$Lambda$1050/9735964@14b019e
+
+scala> sayHello(greetings, rest, name)
+Hello Scala! This is Seva Finogenov
+
+scala> sayHello("Zdravstvui", rest, name)
+Zdravstvui Scala! This is Seva Finogenov
+
+scala> var possibleGreetings: List[String] = List("Hello", "Holla", "Privet")
+possibleGreetings: List[String] = List(Hello, Holla, Privet)
+
+scala> class HelloSayer(name: String){
+     | def greet: Unit = {
+     | for (greet <- possibleGreetings) sayHello(greet, rest, name)
+     | }
+     | }
+defined class HelloSayer
+
+scala> val standartSayer = new HelloSayer(name)
+standartSayer: HelloSayer = HelloSayer@50709a
+
+scala> standartSayer.greet
+Hello Scala! This is Seva Finogenov
+Holla Scala! This is Seva Finogenov
+Privet Scala! This is Seva Finogenov
+
+scala> val reverseSayer = new HelloSayer(name.reverse)
+reverseSayer: HelloSayer = HelloSayer@1a50851
+
+scala> reverseSayer.greet
+Hello Scala! This is vonegoniF aveS
+Holla Scala! This is vonegoniF aveS
+Privet Scala! This is vonegoniF aveS
+
+scala>
